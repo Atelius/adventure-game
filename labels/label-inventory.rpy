@@ -9,7 +9,7 @@ label setupFirstRoom:
             environment_sprites.append(environment_SM.create(t))
             environment_sprites[-1].type = item
             environment_sprites[-1].idle_image = idle_image
-            environment_sprites[-1].hove_image = hover_image
+            environment_sprites[-1].hover_image = hover_image
 
             # set image to half size (depends on file size x size)
             if item == "box":
@@ -37,7 +37,7 @@ label setupFirstRoom:
     call screen scene_first_room
     return
 
-label inventory:
+label lbl_inventory:
    
     jump setupFirstRoom
     return
