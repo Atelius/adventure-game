@@ -1,4 +1,5 @@
 ﻿label start:
+    $config.after_load_callbacks =[prepareLoad]
     $config.rollback_enabled = False
     $quick_menu = False
     $environment_SM = SpriteManager(event = environmentEvents)

@@ -197,7 +197,7 @@ init python:
                if i_overlap == False and ie_overlap == False:
                   if item.x<= x <= item.x + item.width and item.y <= y <= item.y + item.height:
                         if item.type == "key":
-                              addToInventory(["key", "lantern", "key"])
+                              addToInventory(["key"])
                         elif item.type == "lantern":
                               addToInventory(["lantern"])
                         elif item.type == "box":
@@ -206,6 +206,11 @@ init python:
                               characterSay(who = "You", what = ["I can't open the door."])
                         elif item.type == "chest-vines":
                               characterSay(who = "You", what = ["I can't open the chest."])
+            global i_overlap
+            global ie_overlap
+            i_overlap = False
+            e_overlap = False
+
    def inventoryArrows(button):
       global inventory_lb_enabled
       global inventory_rb_enabled
@@ -336,6 +341,7 @@ init python:
             inventory_lb_enabled = False
          else: 
             inventory_lb_enabled = True
+      renpy.retain_after_load()
          
 
    def checkItemsOverlap(item1, item2):
@@ -343,3 +349,16 @@ init python:
          return True
       else:
          return False
+   
+   def prepareLoad():
+      global dialogue
+      global inventory_drag
+
+      for item in inventory_sprites:
+         if item_dragged == item.type:
+            item.x = item.original_x
+            item.y = item.original_y
+            item.zorder = 0
+      dialogue = {}
+      inventory_drag = False
+      renpy.hide_screen("characterSay")
