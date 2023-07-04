@@ -197,7 +197,7 @@ init python:
                if i_overlap == False and ie_overlap == False:
                   if item.x<= x <= item.x + item.width and item.y <= y <= item.y + item.height:
                         if item.type == "key":
-                              addToInventory(["key", "lantern", "matches", "secateur", "key","key", "lantern", "matches", "secateur", "key"])
+                              addToInventory(["key", "lantern", "key"])
                         elif item.type == "lantern":
                               addToInventory(["lantern"])
                         elif item.type == "box":
